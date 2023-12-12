@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List and Todo Table</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="listFormTable">
+        <h1>List Table</h1>
+        <table id="listTable">
+            <tr>
+                <th>List ID</th>
+                <th>List Name</th>
+                <th>Tags</th>
+                <th>Color</th>
+                <th>Action</th>
+            </tr>
+        </table>
+
+        <form id="listForm">
+            <label for="listName">List Name:</label>
+            <input type="text" id="listName" required>
+            <label for="listTags">Tags:</label>
+            <input type="text" id="listTags" required>
+            <label for="listColor">Color:</label>
+            <input type="color" id="listColor" required>
+            <button type="button" onclick="addList()">Add List</button>
+        </form>
+    </div>
+
+    <div class="listTodoTable">
+
+        <h1>Todo Table</h1>
+        <table id="todoTable">
+            <tr>
+                <th>ID</th>
+                <th>List ID</th>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </table>
+
+        <br>
+
+        <form id="todoForm">
+            <label for="todoTask">Task:</label>
+            <input type="text" id="todoTask" required>
+            <label for="listSelector">Select List:</label>
+            <select id="listSelector" required></select>
+            <button type="button" onclick="addTodo()">Add Todo</button>
+        </form>
+
+        <br>
+
+        <div class="todoFilter">
+            <label for="searchInput">Search by Todo Title:</label>
+            <input type="text" id="searchInput" placeholder="Search by Todo Title">
+            <button onclick="applyFilters()">Search</button>
+
+            <br>
+
+            <label for="statusSelector">Filter by Status:</label>
+            <select id="statusSelector" onchange="applyFilters()">
+                <option value="3">All</option>
+                <option value="0">New</option>
+                <option value="1">In progress</option>
+                <option value="2">Completed</option>
+            </select>
+
+            <br>
+
+            <label for="listSelectorV2">Filter by List:</label>
+            <select id="listSelectorV2" onchange="applyFilters()">
+                <option value="0">All</option>
+            </select>
+
+            <button onclick="resetFilter()">Reset Filter</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
